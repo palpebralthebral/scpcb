@@ -1775,23 +1775,6 @@ Function UpdateNPCs()
 										Else
 											CurrCameraZoom = 20.0
 											BlurTimer = 500.0
-											
-											If (Not GodMode) Then
-												If PlayerRoom\RoomTemplate\Name$ = "room049"
-													DeathMSG = "Three (3) active instances of SCP-049-2 discovered in the tunnel outside SCP-049's containment chamber. Terminated by Nine-Tailed Fox."
-													For e.events = Each Events
-														If e\EventName = "room049" Then e\EventState=-1 : Exit
-													Next
-												Else
-													DeathMSG = "An active instance of SCP-049-2 was discovered in [REDACTED]. Terminated by Nine-Tailed Fox."
-													Kill()
-												EndIf
-												PlaySound_Strict HorrorSFX(13)
-												If n\Sound2 <> 0 Then FreeSound_Strict(n\Sound2)
-												n\Sound2 = LoadSound_Strict("SFX\SCP\049\Kidnap"+Rand(1,2)+".ogg")
-												n\SoundChn2 = LoopSound2(n\Sound2,n\SoundChn2,Camera,n\obj)
-												n\State = 3
-											EndIf										
 										EndIf
 									Else
 										n\CurrSpeed = CurveValue(n\Speed, n\CurrSpeed, 20.0)
